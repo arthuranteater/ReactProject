@@ -5,6 +5,9 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 
+//React checkpoint - add options for user stories 
+import {UserStoryTodd} from './components/UserStoryTodd';
+
 import './custom.css'
 
 export default class App extends Component {
@@ -13,7 +16,9 @@ export default class App extends Component {
   render () {
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
+        {/*Reach checkpoint - Add a link to user stories*/}
+        <Route exact path='/' component={UserStoryTodd} />
+       {/* <Route exact path='/' component={Home} />*/}
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
       </Layout>
