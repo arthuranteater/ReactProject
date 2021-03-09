@@ -26,5 +26,10 @@ import React from 'react'
 //         {people.map((person, i) => <li key={i}>{person.firstName} {person.lastName} <button></button></li>)}
 //     </ul>
 
-export default ({people = []}) =>
-<ul>{people.map((person, i) => <li key={i}>{person.firstName} {person.lastName} <button>Edit</button></li>)}</ul>;
+// export default ({people = []}) =>
+// <ul>{people.map((person, i) => <li key={i}>{person.firstName} {person.lastName} <button>Edit</button></li>)}</ul>;
+
+export default ({onEdit, people = []}) =>
+    <ul>{people.map((person, i) =>
+        <li key={i}>{person.firstName} {person.lastName} <a className='btn' onClick={() => onEdit(person)}>Edit</a></li>)}
+    </ul>;

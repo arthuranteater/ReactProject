@@ -1,15 +1,38 @@
 import React, { Component } from 'react'
 import PersonList from './components/PersonList'
+import PersonEdit from './components/PersonEdit'
 
 class App extends Component {
-state = {people:[]}
-  render() {
+  state = {
+    people: [
+      { firstName: 'Johnny', lastName: 'Carson' },
+      { firstName: 'Jay', lastName: 'Leno' },
+      { firstName: 'Conan', lastName: 'O\'Brien' },
+      { firstName: 'Jimmy', lastName: 'Fallon' }
+    ]
+   }
 
+   onEdit = (person) => {
+    this.setState({
+      ...this.state,
+      selectedView: 'PersonEdit',
+      selectedPerson: person
+    })
+  }
+
+  get currentView() {
+    if (this.state.selectedView === 'PersonEdit') {
+      return <PersonEdit person={this.state.selectedPerson }/>;
+    }
+    return <PersonList people={this.state.people} onEdit={this.onEdit}/>; // <-- Added onEdit prop
+  }
+
+  render() {
     return (
       <div className="App">
-        <PersonList  people={this.state.people}/>
+        {this.currentView}
       </div>
-    );
+    )
   }
 }
 

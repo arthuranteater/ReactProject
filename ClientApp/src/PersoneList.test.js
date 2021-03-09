@@ -52,22 +52,33 @@ describe('PersonList', () => {
     expect(buttons.length).toEqual(0);
   });
 
-  it('renders one edit button per person', () => {
-    const people = [
-      { firstName: 'Sergey', lastName: 'Brin' },
-      { firstName: 'Larry', lastName: 'Page' }
-    ];
-    const buttons = personListWrapper(people).find('button');
+  // it('renders one edit button per person', () => {
+  //   const people = [
+  //     { firstName: 'Sergey', lastName: 'Brin' },
+  //     { firstName: 'Larry', lastName: 'Page' }
+  //   ];
+  //   const buttons = personListWrapper(people).find('button');
 
-    expect(buttons.length).toBe(2);
+  //   expect(buttons.length).toBe(2);
+  // });
+
+  // // Test for 'edit' text in button element
+  // it('includes text on the button saying Edit', () => {
+  //   const people = [{firstName: 'Sergey', lastName: 'Brin'}];
+
+  //   expect(personListWrapper(people).find('button').text()).toEqual('Edit');
+  // });
+
+  it('call onEdit with the person when clicked', () => {
+    const people = [{ firstName: 'Sergey', lastName: 'Brin' }];
+    const mockOnEdit = jest.fn();
+    const personListWrapper = shallow(<PersonList people={people} onEdit={mockOnEdit} />);
+
+    personListWrapper.find('.btn').simulate('click');
+
+    expect(mockOnEdit).toHaveBeenCalledWith(people[0]);
   });
-
-  // Test for 'edit' text in button element
-  it('includes text on the button saying Edit', () => {
-    const people = [{firstName: 'Sergey', lastName: 'Brin'}];
-
-    expect(personListWrapper(people).find('button').text()).toEqual('Edit');
-  });
+  
 });
 
 // describe('PersonList', () => {
