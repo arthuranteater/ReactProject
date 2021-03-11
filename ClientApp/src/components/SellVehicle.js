@@ -9,13 +9,30 @@ export class SellVehicle extends Component {
     };
   }
 
+submitCar()
+{
+
+
+}
+
+ handleInputChange = (event) => {  
+  event.persist();
+  this.setState(prevState => ({
+    car: {
+      ...prevState.car,
+      [event.target.name]: event.target.value      
+    }
+  }))
+}
+
   render() {
+    console.log(this.state.car);
     return (
       <div>
         <h1>Sell Vehicle Page!</h1>
-        <br></br>
+        <br></br>        
         <form onSubmit={this.submitCar}>
-          <input type="input" name="owner" placeholder="Owner" onChange={this.handleInputChange}></input>
+          <input type="input" name="owner" placeholder="Owner" onChange={this.handleInputChange}></input>  
           <input type="input" name="year" placeholder="Year" onChange={this.handleInputChange}></input>
           <input type="input" name="make" placeholder="Make" onChange={this.handleInputChange}></input>
           <input type="input" name="model" placeholder="Model" onChange={this.handleInputChange}></input>
