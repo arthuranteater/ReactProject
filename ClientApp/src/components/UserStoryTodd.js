@@ -15,9 +15,7 @@ export class UserStoryTodd extends Component {
           <div>
             <h1>Display Inventory</h1>    
             <p></p>    
-            <p aria-live="polite">Number of Vehicles: <strong></strong></p>
-            <p aria-live="polite">History of Cars: <strong></strong></p>
-    
+            <p aria-live="polite">Number of Vehicles: <strong></strong></p>          
             <button className="btn btn-primary" onClick={this.incrementCounter}>View History</button>&nbsp;&nbsp;
             <button className="btn btn-primary" onClick={this.incrementCounter}>View Inventory</button>
           </div>

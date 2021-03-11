@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import PersonList from './components/PersonList'
 import PersonEdit from './components/PersonEdit'
+import { Route } from 'react-router';
+import { Layout } from './components/Layout';
+// //React checkpoint - add options for user stories 
+import {UserStoryTodd} from './components/UserStoryTodd';
+import { Counter } from './components/Counter';
+import {VehicleList} from './components/VehicleList';
+import { Home } from './components/Home';
+
 
 class App extends Component {
   state = {
@@ -30,6 +38,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          <Layout>
+          {/*Reach checkpoint - Add a link to user stories*/}
+          <Route exact path='/' component={UserStoryTodd} />
+          { /*<Route exact path='/' component={Home} />*/}
+          <Route path='/counter' component={Counter} />          
+          <Route path ='/PersonList' component = {PersonList}/>
+        </Layout>
         {this.currentView}
       </div>
     )

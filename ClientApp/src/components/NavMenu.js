@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
+import { VehicleList } from './VehicleList'
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -33,11 +34,20 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/VehicleList">View Inventory</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/UserStoryTodd">Add Vehicle</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/PersonList">View/Edit Users</NavLink>
                 </NavItem>
               </ul>
             </Collapse>
