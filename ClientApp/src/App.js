@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import PersonList from './components/PersonList'
-import PersonEdit from './components/PersonEdit'
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 // //React checkpoint - add options for user stories 
-import {UserStoryTodd} from './components/UserStoryTodd';
-import { Counter } from './components/Counter';
-import {VehicleList} from './components/VehicleList';
 import { Home } from './components/Home';
+import { Inventory } from './components/Inventory';
+import { SellVehicle } from './components/SellVehicle';
+import { ViewUsers } from './components/ViewUsers';
 
 
 class App extends Component {
@@ -28,24 +26,23 @@ class App extends Component {
     })
   }
 
-  get currentView() {
-    if (this.state.selectedView === 'PersonEdit') {
-      return <PersonEdit person={this.state.selectedPerson }/>;
-    }
-    return <PersonList people={this.state.people} onEdit={this.onEdit}/>; // <-- Added onEdit prop
-  }
+  // get currentView() {
+  //   if (this.state.selectedView === 'PersonEdit') {
+  //     return <PersonEdit person={this.state.selectedPerson }/>;
+  //   }
+  //   return <PersonList people={this.state.people} onEdit={this.onEdit}/>; // <-- Added onEdit prop
+  // }
 
   render() {
     return (
       <div className="App">
-          <Layout>
-          {/*Reach checkpoint - Add a link to user stories*/}
-          <Route exact path='/' component={UserStoryTodd} />
-          { /*<Route exact path='/' component={Home} />*/}
-          <Route path='/counter' component={Counter} />          
-          <Route path ='/PersonList' component = {PersonList}/>
+        <Layout>
+          <Route exact path='/' component={Home}/>
+          <Route path='/Inventory' component={Inventory}/>
+          <Route path='/SellVehicle' component={SellVehicle}/>
+          <Route path='/ViewUsers' component={ViewUsers}/>
         </Layout>
-        {this.currentView}
+        {/* {this.currentView} */}
       </div>
     )
   }
