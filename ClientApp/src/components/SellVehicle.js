@@ -1,38 +1,57 @@
 import React, { Component } from 'react';
 
 export class SellVehicle extends Component {
-
+/*
   constructor(props) {
     super(props);
-    this.state = { 
-      car: {}
+    this.state = {
+      car: {
+        owner: "",
+        year: "",
+        make: "",
+        model: "",
+        color: "",
+        price: ""
+      }
     };
+  }*/
+
+  state = {
+    car: {
+      owner: "",
+      year: "",
+      make: "",
+      model: "",
+      color: "",
+      price: ""
+    }
   }
 
-submitCar()
-{
+  submitCar = (event) => {
+    event.preventDefault();
+    console.log("entered submit car");
+    console.log(this.state.car);   
+    this.props.propAddCar(this.state.car);
+  }
 
-
-}
-
- handleInputChange = (event) => {  
-  event.persist();
-  this.setState(prevState => ({
-    car: {
-      ...prevState.car,
-      [event.target.name]: event.target.value      
-    }
-  }))
-}
+  handleInputChange = (event) => {
+    event.persist();
+    this.setState(prevState => ({
+      car: {
+        ...prevState.car,
+        [event.target.name]: event.target.value
+      }
+    }))
+  }
 
   render() {
     console.log(this.state.car);
     return (
       <div>
         <h1>Sell Vehicle Page!</h1>
-        <br></br>        
+        <br></br>
         <form onSubmit={this.submitCar}>
-          <input type="input" name="owner" placeholder="Owner" onChange={this.handleInputChange}></input>  
+          <input type="input" name="owner" placeholder="Owner" onChange={this.handleInputChange}></input>
           <input type="input" name="year" placeholder="Year" onChange={this.handleInputChange}></input>
           <input type="input" name="make" placeholder="Make" onChange={this.handleInputChange}></input>
           <input type="input" name="model" placeholder="Model" onChange={this.handleInputChange}></input>
@@ -45,3 +64,5 @@ submitCar()
     );
   }
 }
+
+export default SellVehicle;

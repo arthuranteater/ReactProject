@@ -39,7 +39,7 @@ class App extends Component {
         <Layout>
           <Route exact path='/' component={Home}/>
           <Route path='/Inventory' component={Inventory}/>
-          <Route path='/SellVehicle' component={SellVehicle}/>
+          {/* <Route path='/SellVehicle' component={SellVehicle}/> */}
           <Route path='/ViewUsers' component={ViewUsers}/>
         </Layout>
         {/* {this.currentView} */}

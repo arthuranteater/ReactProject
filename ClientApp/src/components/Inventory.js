@@ -1,5 +1,7 @@
+import { escapeSelector } from 'jquery';
 import React from 'react';
 import { vehicles } from "../utils/data";
+import SellVehicle from "./SellVehicle";
 
 export class Inventory extends React.Component {
 
@@ -16,7 +18,7 @@ export class Inventory extends React.Component {
     for (let i = 0; i < listedCars.length; i++) {
       tmpCarsList.push(
         <div key={i}>
-          <p>Car {i+1}</p>
+          <p>Car {i + 1}</p>
           <ul>
             <li>Owner: {listedCars[i].owner}</li>
             <li>Make: {listedCars[i].make}</li>
@@ -30,13 +32,37 @@ export class Inventory extends React.Component {
     return tmpCarsList
   }
 
+  addNewCar = (car) => {
+    this.setState(prevState => ({
+      ...prevState.car,
+      carsList: this.state.carsList.concat(car)
+    }))
+
+    console.log(this.state.carsList);
+  }
+
+
   render() {
     console.log("This.state.carsList = ", this.state.carsList)
-    return (
-      <div>
-        <h1>Inventory Page!</h1>
-        {this.returnListOfCarsInHtml(this.state.carsList)}
-      </div>
-    );
+
+    //if (!bviewInventory) 
+    {
+      return (
+        <div>
+          <SellVehicle propAddCar={this.addNewCar} />
+        </div>
+      );
+    }
+    //else
+     {
+      return (
+        <div>
+          <h1>Inventory Page!</h1>
+          {this.returnListOfCarsInHtml(this.state.carsList)}
+        </div>
+      );
+    }
   }
 }
+
+export default Inventory;
