@@ -8,12 +8,9 @@ export class NavMenu extends Component {
 
   constructor (props) {
     super(props);
-
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
-      bviewInventory:false,
-      bviewForm: false
+      collapsed: true
     };
   }
 
@@ -21,26 +18,6 @@ export class NavMenu extends Component {
     this.setState({
       collapsed: !this.state.collapsed
     });
-  }
-
-  ViewInventory = () =>{
-    this.setState({
-      bviewInventory: true,
-      bviewForm: false
-    })
-
-    console.log("hello");
-    console.log(this.state.bviewInventory);
-  }
-
-  ViewForm = () => {
-    this.setState({
-      bviewInventory: false,
-      bviewForm: true
-    })
-
-    console.log("hello");
-    console.log(this.state.bviewInventory);
   }
 
   render () {
@@ -56,11 +33,8 @@ export class NavMenu extends Component {
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark"  onClick={this.ViewInventory} to="/Inventory">View Inventory</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/Inventory">Cars</NavLink>
                 </NavItem>
-                 <NavItem>
-                  <NavLink tag={Link} className="text-dark"  onClick={this.ViewForm} to = "/Inventory">Sell Vehicle</NavLink>
-                </NavItem> 
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/ViewUsers">View/Edit Users</NavLink>
                 </NavItem>

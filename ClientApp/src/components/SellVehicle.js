@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 
 export class SellVehicle extends Component {
-/*
-  constructor(props) {
-    super(props);
-    this.state = {
-      car: {
-        owner: "",
-        year: "",
-        make: "",
-        model: "",
-        color: "",
-        price: ""
-      }
-    };
-  }*/
 
   state = {
     car: {
@@ -45,7 +31,6 @@ export class SellVehicle extends Component {
   }
 
   render() {
-    console.log(this.state.car);
     return (
       <div>
         <h1>Sell Vehicle Page!</h1>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import PersonEdit from './components/PersonEdit'
+import PersonEdit from '../components/PersonEdit'
 
 describe('PersonList', () => {
   it('should render the selected person from props', () => {

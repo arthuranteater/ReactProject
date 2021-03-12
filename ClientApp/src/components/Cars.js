@@ -1,15 +1,14 @@
-import { escapeSelector } from 'jquery';
 import React from 'react';
 import { vehicles } from "../utils/data";
 import SellVehicle from "./SellVehicle";
 
-export class Inventory extends React.Component {
+export class Cars extends React.Component {
 
   constructor(props) {
     super(props)
-    var newCarArray = vehicles;
     this.state = {
-      carsList: newCarArray
+      carsList: vehicles,
+      viewingList: true
     };
   }
 
@@ -37,32 +36,36 @@ export class Inventory extends React.Component {
       ...prevState.car,
       carsList: this.state.carsList.concat(car)
     }))
-
-    console.log(this.state.carsList);
   }
 
+  displayForm = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      viewingList: !this.state.viewingList
+    }))
+  }
 
   render() {
-    console.log("This.state.carsList = ", this.state.carsList)
-
-    //if (!bviewInventory) 
+    if (this.state.viewingList)
     {
       return (
         <div>
-          <SellVehicle propAddCar={this.addNewCar} />
+          <h1>Cars Page!</h1>
+          <button onClick={this.displayForm}>Sell A Vehicle</button>
+          {this.returnListOfCarsInHtml(this.state.carsList)}
         </div>
       );
     }
-    //else
-     {
+    else
+    {
       return (
         <div>
-          <h1>Inventory Page!</h1>
-          {this.returnListOfCarsInHtml(this.state.carsList)}
+          <button onClick={this.displayForm}>View Inventory</button>
+          <SellVehicle propAddCar={this.addNewCar} />
         </div>
       );
     }
   }
 }
 
-export default Inventory;
+export default Cars;
