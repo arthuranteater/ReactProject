@@ -61,7 +61,7 @@ export class Cars extends React.Component {
       return (
         <div>
           <button onClick={this.displayForm}>View Inventory</button>
-          <SellVehicle propAddCar={this.addNewCar} />
+          <SellVehicle propAddCar={this.addNewCar} propToggleViewState={this.displayForm}/>
         </div>
       );
     }

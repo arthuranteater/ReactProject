@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Login from './Login';
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -6,7 +7,9 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <h1>Home Page!</h1>
+        <h1>Welcome to 'Car-Dealership'!</h1>
+        <p>Please Login or Sign-Up</p>
+        <Login/>
       </div>
     );
   }

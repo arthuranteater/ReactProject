@@ -8,22 +8,6 @@ import { ViewUsers } from './components/ViewUsers';
 
 
 class App extends Component {
-  state = {
-    people: [
-      { firstName: 'Johnny', lastName: 'Carson' },
-      { firstName: 'Jay', lastName: 'Leno' },
-      { firstName: 'Conan', lastName: 'O\'Brien' },
-      { firstName: 'Jimmy', lastName: 'Fallon' }
-    ]
-   }
-
-   onEdit = (person) => {
-    this.setState({
-      ...this.state,
-      selectedView: 'PersonEdit',
-      selectedPerson: person
-    })
-  }
 
   render() {
     return (
