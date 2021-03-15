@@ -1,3 +1,10 @@
+/** 
+ * To Run type the following:
+ *  npm install --save redux react-redux  
+ *  npm start
+ * 
+**/
+
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -19,7 +26,7 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case "INCREMENT":
       return {
-        count: state.count + 1
+        count: state.count + 1        
       };
     case "DECREMENT":
       return {

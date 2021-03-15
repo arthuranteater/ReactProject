@@ -5,7 +5,7 @@ import { Home } from './components/Home';
 import { Cars } from './components/Cars';
 import { SellVehicle } from './components/SellVehicle';
 import { ViewUsers } from './components/ViewUsers';
-import {Counter} from './components/Counter';
+import Counter from './components/Counter';
 
 const initialState = {
 

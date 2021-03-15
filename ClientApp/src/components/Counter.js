@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-
-
-export class Counter extends Component {
+class Counter extends React.Component {
     static displayName = Counter.name;
 
     increment = () => {
         console.log("Increment here ");
-        this.props.dispatch({type: "INCREMENT"});        
+        this.props.dispatch({ type: "INCREMENT" });
     }
 
     decrement = () => {
         console.log("Decrement here ");
-        this.props.dispatch({type: "DECREMENT"});
+        this.props.dispatch({ type: "DECREMENT" });
     }
 
     render() {
@@ -23,7 +21,7 @@ export class Counter extends Component {
                 <h1>Counter</h1>
                 <div>
                     <button onClick={this.decrement}>-</button>
-                    <span className="count">{this.props.count}</span>
+                    <span>{this.props.count}</span>
                     <button onClick={this.increment} >+</button>
                 </div>
             </div>
@@ -31,11 +29,12 @@ export class Counter extends Component {
     }
 }
 
-const mapStateToProps = state => (
+const mapStateToProps = (state) => (
     {
-        count: state.count
+         count: state.count
     }
 );
+
 
 export default connect(mapStateToProps)(Counter);
 
