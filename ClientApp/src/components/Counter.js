@@ -8,7 +8,7 @@ export class Counter extends Component {
 
     increment = () => {
         console.log("Increment here ");
-        this.props.dispatch({type: "INCREMENT"});
+        this.props.dispatch({type: "INCREMENT"});        
     }
 
     decrement = () => {
@@ -37,5 +37,5 @@ const mapStateToProps = state => (
     }
 );
 
-//export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps)(Counter);
 

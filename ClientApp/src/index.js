@@ -10,7 +10,6 @@ import { createStore } from 'redux';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
-const store = createStore();
 
 const initialState = {
   count : 0
@@ -31,6 +30,7 @@ function reducer(state = initialState, action) {
   }
 }
 
+const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
