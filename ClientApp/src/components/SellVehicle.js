@@ -9,7 +9,8 @@ export class SellVehicle extends Component {
       make: "",
       model: "",
       color: "",
-      price: ""
+      price: "",
+      user: ""
     }
   }
 
@@ -19,11 +20,13 @@ export class SellVehicle extends Component {
   }
 
   handleInputChange = (event) => {
+    console.log("fired handleInputChange");
     event.persist();
     this.setState(prevState => ({
       car: {
         ...prevState.car,
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
+        user: "Generic User"
       }
     }))
   }
@@ -42,7 +45,7 @@ export class SellVehicle extends Component {
           <input type="input" name="price" placeholder="Price" onChange={this.handleInputChange}></input>
           <button type="submit">Submit</button>
         </form>
-        {/* <button className="btn btn-primary" onClick={this.incrementCounter}>View History</button>&nbsp;&nbsp; */}
+        <button className="btn btn-primary" onClick={this.incrementCounter}>View History</button>
       </div>
     );
   }

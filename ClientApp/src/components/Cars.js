@@ -25,6 +25,8 @@ export class Cars extends React.Component {
             <li>Model: {listedCars[i].model}</li>
             <li>Year: {listedCars[i].year}</li>
             <li>Color: {listedCars[i].color}</li>
+            <li>Price: {(listedCars[i].price).toLocaleString('en-US', { style: 'currency', currency: 'USD', })}</li>
+            <li>Listed By: {listedCars[i].user}</li>
           </ul>
         </div>
       )
@@ -33,8 +35,7 @@ export class Cars extends React.Component {
   }
 
   addNewCar = (car) => {
-    if (this.carIsValid(car)) 
-    {
+    if (this.carIsValid(car)) {
       // Add the 'New Car' to the existing inventory: CarsList
       this.setState(prevState => ({
         ...prevState.car,
@@ -55,7 +56,7 @@ export class Cars extends React.Component {
   render() {
     if (this.state.viewingList) {
       return (
-        <div>
+        <div className="cars-inventory">
           <h1>Cars Page!</h1>
           <button onClick={this.displayForm}>Sell A Vehicle</button>
           {this.returnListOfCarsInHtml(this.state.carsList)}
@@ -64,9 +65,9 @@ export class Cars extends React.Component {
     }
     else {
       return (
-        <div>
+        <div className="cars-sell">
           <button onClick={this.displayForm}>View Inventory</button>
-          <SellVehicle propAddCar={this.addNewCar}/>
+          <SellVehicle propAddCar={this.addNewCar} />
         </div>
       );
     }
@@ -74,8 +75,6 @@ export class Cars extends React.Component {
 
 
 
-
-  
   // --- CAR VALIDATION RULES ---
   validateYearPrice = (car) => {
     if (isNaN(car.year) || isNaN(car.price)) {
@@ -103,18 +102,14 @@ export class Cars extends React.Component {
     return true;
   }
   validateColor = (car) => {
-    if ((String(car.color).length > 50) || (String(car.color).length < 2)) 
-    {
+    if ((String(car.color).length > 50) || (String(car.color).length < 2)) {
       alert("Color Field contains too many or too little characters!");
     }
-    else
-    {
-      if (this.isColor(car.color))
-      {
+    else {
+      if (this.isColor(car.color)) {
         return true;
       }
-      else
-      {
+      else {
         alert("Invalid Color");
         return false;
       }
@@ -136,11 +131,6 @@ export class Cars extends React.Component {
     return true;
   }
   // --- CAR VALIDATION RULES ---
-
-
-
-
-
 }
 
 export default Cars;

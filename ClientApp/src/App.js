@@ -7,11 +7,6 @@ import { SellVehicle } from './components/SellVehicle';
 import { ViewUsers } from './components/ViewUsers';
 import Counter from './components/Counter';
 
-const initialState = {
-
-}
-
-
 
 class App extends Component {  
   

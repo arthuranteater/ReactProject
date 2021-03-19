@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 let testEmailsArr = [
     {email: "test@test.com",  password: "password"},
-    {email: "test2@test.com",  password: "password"},
-    {email: "johnSmith@test.com",  password: "password"}
+    {email: "test2@test.com",  password: "password2"},
+    {email: "johnSmith@test.com",  password: "password3"}
 ]
 
 export class Login extends Component {    

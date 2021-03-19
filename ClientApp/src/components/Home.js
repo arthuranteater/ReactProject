@@ -6,7 +6,7 @@ export class Home extends Component {
 
   render () {
     return (
-      <div>
+      <div className="home">
         <h1>Welcome to 'Car-Dealership'!</h1>
         <p>Please Login or Sign-Up</p>
         <Login/>
