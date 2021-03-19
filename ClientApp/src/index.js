@@ -1,10 +1,3 @@
-/** 
- * To Run type the following:
- *  npm install --save redux react-redux  
- *  npm start
- * 
-**/
-
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -21,7 +14,6 @@ const rootElement = document.getElementById('root');
 const initialState = {
   count : 0
 }
-
 function reducer(state = initialState, action) {
   switch (action.type) {
     case "INCREMENT":
@@ -36,7 +28,6 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
-
 const store = createStore(reducer);
 
 ReactDOM.render(
@@ -48,7 +39,3 @@ ReactDOM.render(
   rootElement);
 
 registerServiceWorker();
-
-
-
-
