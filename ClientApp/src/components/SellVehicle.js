@@ -16,7 +16,6 @@ export class SellVehicle extends Component {
   submitCar = (event) => {
     event.preventDefault();
     this.props.propAddCar(this.state.car);
-    this.props.propToggleViewState();
   }
 
   handleInputChange = (event) => {

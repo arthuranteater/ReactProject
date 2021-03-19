@@ -2,6 +2,7 @@ import React from 'react';
 import { vehicles } from "../utils/data";
 import SellVehicle from "./SellVehicle";
 
+
 export class Cars extends React.Component {
 
   constructor(props) {
@@ -32,10 +33,16 @@ export class Cars extends React.Component {
   }
 
   addNewCar = (car) => {
-    this.setState(prevState => ({
-      ...prevState.car,
-      carsList: this.state.carsList.concat(car)
-    }))
+    if (this.carIsValid(car)) 
+    {
+      // Add the 'New Car' to the existing inventory: CarsList
+      this.setState(prevState => ({
+        ...prevState.car,
+        carsList: this.state.carsList.concat(car)
+      }))
+      // switch view to CarsList
+      this.displayForm();
+    }
   }
 
   displayForm = () => {
@@ -46,8 +53,7 @@ export class Cars extends React.Component {
   }
 
   render() {
-    if (this.state.viewingList)
-    {
+    if (this.state.viewingList) {
       return (
         <div>
           <h1>Cars Page!</h1>
@@ -56,16 +62,85 @@ export class Cars extends React.Component {
         </div>
       );
     }
-    else
-    {
+    else {
       return (
         <div>
           <button onClick={this.displayForm}>View Inventory</button>
-          <SellVehicle propAddCar={this.addNewCar} propToggleViewState={this.displayForm}/>
+          <SellVehicle propAddCar={this.addNewCar}/>
         </div>
       );
     }
   }
+
+
+
+
+  
+  // --- CAR VALIDATION RULES ---
+  validateYearPrice = (car) => {
+    if (isNaN(car.year) || isNaN(car.price)) {
+      alert("Year or Price Field failed!");
+      return false
+    }
+    else {
+      return true;
+    }
+  }
+  validateMakeOwnerModel = (car) => {
+    if ((String(car.model).length > 50) || (String(car.model).length < 3)) {
+      //fails
+      alert("Model Field contains too many or too little characters!");
+      return false;
+    }
+    if ((String(car.owner).length > 50) || (String(car.owner).length < 3)) {
+      alert("Owner Field contains too many or too little characters!");
+      return false;
+    }
+    if ((String(car.make).length > 50) || (String(car.make).length < 3)) {
+      alert("Make Field contains too many or too little characters!");
+      return false;
+    }
+    return true;
+  }
+  validateColor = (car) => {
+    if ((String(car.color).length > 50) || (String(car.color).length < 2)) 
+    {
+      alert("Color Field contains too many or too little characters!");
+    }
+    else
+    {
+      if (this.isColor(car.color))
+      {
+        return true;
+      }
+      else
+      {
+        alert("Invalid Color");
+        return false;
+      }
+    }
+  }
+  isColor = (strColor) => {
+    var s = new Option().style;
+    strColor = strColor.toLowerCase()
+    s.color = strColor;
+    return s.color == strColor;
+  }
+  carIsValid = (car) => {
+    if (!this.validateYearPrice(car))
+      return false;
+    if (!this.validateMakeOwnerModel(car))
+      return false;
+    if (!this.validateColor(car))
+      return false;
+    return true;
+  }
+  // --- CAR VALIDATION RULES ---
+
+
+
+
+
 }
 
 export default Cars;
