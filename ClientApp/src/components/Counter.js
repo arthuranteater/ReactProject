@@ -8,7 +8,6 @@ class Counter extends React.Component {
         console.log("Increment here ");
         this.props.dispatch({ type: "INCREMENT" });
     }
-
     decrement = () => {
         console.log("Decrement here ");
         this.props.dispatch({ type: "DECREMENT" });
@@ -31,10 +30,8 @@ class Counter extends React.Component {
 
 const mapStateToProps = (state) => (
     {
-         count: state.count
+        count: state.count
     }
 );
 
-
 export default connect(mapStateToProps)(Counter);
-

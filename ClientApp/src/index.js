@@ -12,13 +12,13 @@ const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
 
 const initialState = {
-  count : 0
+  count: 0
 }
 function reducer(state = initialState, action) {
   switch (action.type) {
     case "INCREMENT":
       return {
-        count: state.count + 1        
+        count: state.count + 1
       };
     case "DECREMENT":
       return {
