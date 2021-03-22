@@ -6,7 +6,6 @@ import { Cars } from './components/Cars';
 import Counter from './components/Counter';
 
 class App extends Component {
-
   render() {
     return (
       <div className="App">
