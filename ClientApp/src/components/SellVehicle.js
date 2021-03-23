@@ -17,7 +17,10 @@ export class SellVehicle extends Component {
 
   submitCar = (event) => {
     event.preventDefault();
-    this.props.propAddCar(this.state.car);
+
+    //this.props.propAddCar(this.state.car);
+    // we need this ^^^ to do this ,,,
+    //server.js.put();
   }
 
   handleInputChange = (event) => {
@@ -56,10 +59,10 @@ export class SellVehicle extends Component {
           <input type="input" name="model" placeholder="Model" onChange={this.handleInputChange}></input>
           <input type="input" name="color" placeholder="Color" onChange={this.handleInputChange}></input>
           <input type="input" name="price" placeholder="Price" onChange={this.handleInputChange}></input>
-          <input type="file" name="filePhoto" onChange={this.setPhotoFromUpload} id="filePhoto" data-errormsg="PhotoUploadErrorMsg"></input>
+          {/* <input type="file" name="filePhoto" onChange={this.setPhotoFromUpload} id="filePhoto" data-errormsg="PhotoUploadErrorMsg"></input> */}
           <button type="submit">Submit</button>
         </form>
-        <img src={this.state.img} id="previewHolder" alt="Uploaded Image Preview Holder" width="250px" height="250px"/>
+        {/* <img src={this.state.img} id="previewHolder" alt="Uploaded Image Preview Holder" width="250px" height="250px"/> */}
         {/* <button className="btn btn-primary" onClick={this.incrementCounter}>View History</button> */}
       </div>
     );

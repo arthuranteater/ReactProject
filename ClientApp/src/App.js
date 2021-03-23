@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { Cars } from './components/Cars';
+import { Inventory } from './components/Inventory';
+import { SellVehicle } from './components/SellVehicle';
 import Counter from './components/Counter';
 
 class App extends Component {
@@ -11,7 +12,8 @@ class App extends Component {
       <div className="App">
         <Layout>
           <Route exact path='/' component={Home} />
-          <Route path='/Inventory' component={Cars} />
+          <Route path='/Inventory' component={Inventory} />
+          <Route path='/SellVehicle' component={SellVehicle} />
           <Route path='/Counter' component={Counter} />
         </Layout>
       </div>
