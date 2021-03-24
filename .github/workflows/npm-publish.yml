@@ -21,8 +21,8 @@ jobs:
         working-directory: ClientApp
       - run: npm audit fix --force
         working-directory: ClientApp
-      - run: npm test
-        working-directory: ClientApp
+#      - run: npm test
+#        working-directory: ClientApp
       - run: npm run build
         working-directory: ClientApp
       - name: Upload a Build Artifact
@@ -40,13 +40,11 @@ jobs:
           node-version: 12
       - run: npm install
         working-directory: Server
-      - run: npm run build
-        working-directory: Server
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.2
         with:
           name: Artifact_Server
-          path: Server/build
+          path: Server
         
         
         
