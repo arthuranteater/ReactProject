@@ -37,6 +37,7 @@ jobs:
       - run: npm ci
         working-directory: ClientApp
       - run: npm publish
+        working-directory: ClientApp
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
