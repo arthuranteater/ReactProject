@@ -19,8 +19,6 @@ jobs:
           node-version: 12
       - run: npm ci
         working-directory: ClientApp
-      - run: npm test
-        working-directory: ClientApp
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.2
         with:
