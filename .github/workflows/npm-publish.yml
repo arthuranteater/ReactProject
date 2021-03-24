@@ -21,7 +21,9 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
+        working-directory: ClientApp
       - run: npm test
+        working-directory: ClientApp
 
   publish-npm:
     needs: build
