@@ -11,7 +11,7 @@ on:
 jobs:
 
   buildClient:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -23,7 +23,7 @@ jobs:
         working-directory: ClientApp
         
   buildServer:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -31,7 +31,6 @@ jobs:
           node-version: 12
       - run: npm ci
         working-directory: Server
-        
         
         
         
