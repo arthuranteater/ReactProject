@@ -8,11 +8,6 @@ describe('App', () => {
     appWrapper = shallow(<App />);
   });
 
-  it('renders a PersonList', () => {
-    const personList = appWrapper.find(PersonList);
-    expect(personList).toHaveLength(1);
-  });
-
   it('has state', () => {
     const appState = appWrapper.state();
     expect(appState).not.toBeNull();
@@ -21,11 +16,6 @@ describe('App', () => {
   it('has people property on state', () => {
     const appState = appWrapper.state();
     expect(appState.people).not.toBeUndefined();
-  });
-
-  it('passes people to PersonList', () => {
-    const personList = appWrapper.find(PersonList);
-    expect(personList.props().people).toEqual(appWrapper.state().people);
   });
 
   it('has onEdit that will change selectedPerson to person parameter', () => {
@@ -46,11 +36,5 @@ describe('App', () => {
     appWrapper.setState({ selectedView: 'PersonEdit' });
     const personEdit = appWrapper.find(PersonEdit);
     expect(personEdit).toHaveLength(1);
-  });
-
-  it('passes onEdit to the PersonList', () => {
-    appWrapper.setState({ selectedView: undefined });
-    const personList = appWrapper.find(PersonList);
-    expect(personList.props().onEdit).toBeDefined();
   });
 });
