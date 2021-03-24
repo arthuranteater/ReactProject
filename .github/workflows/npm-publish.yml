@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.2
         with:
           name: Artifact_ClientApp
-          path: ClientApp/app.js
+          path: ClientApp/src/app.js
         
   buildServer:
     runs-on: ubuntu-16.04
