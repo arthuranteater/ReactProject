@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.2
         with:
           name: Artifact_ClientApp
-          path: ClientApp
+          path: ClientApp/public/dockerActionTest.text
         
   buildServer:
     runs-on: ubuntu-16.04
