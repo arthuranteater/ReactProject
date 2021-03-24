@@ -10,7 +10,7 @@ describe('App', () => {
 
   it('has state', () => {
     const appState = appWrapper.state();
-    expect(appState).not.toBeNull();
+    expect(appState).toBeNull();
   });
 
   // it('has people property on state', () => {
