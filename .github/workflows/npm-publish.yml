@@ -11,7 +11,7 @@ on:
 jobs:
 
   buildClient:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -25,10 +25,10 @@ jobs:
         uses: actions/upload-artifact@v2.2.2
         with:
           name: Artifact_ClientApp
-          path: ClientApp/src/app.js
+          path: ClientApp
         
   buildServer:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
