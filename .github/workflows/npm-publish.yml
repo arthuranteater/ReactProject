@@ -31,8 +31,6 @@ jobs:
           node-version: 12
       - run: npm ci
         working-directory: Server
-      - run: npm test
-        working-directory: Server
         
         
         
