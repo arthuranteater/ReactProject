@@ -11,7 +11,7 @@ on:
 jobs:
 
   buildClient:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -28,7 +28,7 @@ jobs:
           path: ClientApp
         
   buildServer:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
