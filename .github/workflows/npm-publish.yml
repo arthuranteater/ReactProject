@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm install
+      - run: npm install --force
+        working-directory: ClientApp
+      - run: npm audit fix --force
         working-directory: ClientApp
       - run: npm test
         working-directory: ClientApp
